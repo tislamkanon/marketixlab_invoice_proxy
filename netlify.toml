@@ -1,0 +1,37 @@
+[build]
+  # No build command needed for Python functions
+  publish = "public"
+  functions = "netlify/functions"
+
+[functions]
+  # Python runtime
+  node_bundler = "esbuild"
+  
+  # Include Python functions
+  included_files = ["netlify/functions/**"]
+
+# Environment variables (set these in Netlify dashboard)
+# INVOICE_TEMPLATE_URL = "your-template-url"
+# PAID_STAMP_URL = "your-stamp-url"
+# SIGNATURE_URL = "your-signature-url"
+
+# Headers for CORS
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+
+# Redirect for the function
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

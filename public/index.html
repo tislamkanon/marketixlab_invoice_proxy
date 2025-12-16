@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator API - MarketixLab</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        h1 {
+            color: #4a5568;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h1 span {
+            font-size: 2rem;
+        }
+        .tagline {
+            color: #718096;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .status::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #4caf50;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        h2 {
+            color: #4a5568;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .endpoint {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .method {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+        .url {
+            font-family: 'Courier New', monospace;
+            color: #2d3748;
+            word-break: break-all;
+        }
+        .description {
+            color: #718096;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            color: #a0aec0;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span>📄</span> Invoice Generator API</h1>
+        <p class="tagline">"Where strategy & creativity unite"</p>
+        
+        <div class="status">API Online</div>
+        
+        <h2>Available Endpoints</h2>
+        
+        <div class="endpoint">
+            <span class="method">POST</span>
+            <code class="url">/.netlify/functions/generate-invoice</code>
+            <p class="description">
+                Generate a DOCX invoice from JSON data. Send invoice details including 
+                client information, items, and financial data to receive a formatted 
+                invoice document.
+            </p>
+        </div>
+        
+        <h2>Usage</h2>
+        <div class="endpoint">
+            <p class="description">
+                This API is designed to work with the MarketixLab Invoice Generator frontend.
+                Configure your frontend to point to this URL to generate invoices.
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>MarketixLab Invoice Generator Backend</p>
+            <p>Powered by <a href="https://www.netlify.com/" target="_blank">Netlify Functions</a></p>
+        </div>
+    </div>
+</body>
+</html>
